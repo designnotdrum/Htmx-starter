@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Hello Page</title>
+  <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+</head>
+
+<body>
+  <h1>Hello</h1>
+  <button hx-get="/ui/button" hx-swap="afterend">Load</button>
+
+  <script>
+    // Install a service worker that intercepts requests to /ui/*
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/sw.js")
+        .then((registration) => {
+          console.log("Service worker registered:", registration);
+        })
+        .catch((error) => {
+          console.error("Error registering service worker:", error);
+        });
+    }
+  </script>
+</body>
+
+</html>
