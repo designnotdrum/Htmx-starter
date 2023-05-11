@@ -5,7 +5,4 @@ self.addEventListener("fetch", (event) => {
   if (url.pathname.startsWith("/ui/")) {
     event.respondWith(new Response("hello from the other side"));
   }
-  if (url.pathname.startsWith("/bin/")) {
-    event.respondWith(new Response("what do you want?'"));
-  }
 });

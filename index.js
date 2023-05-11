@@ -1,21 +1,22 @@
-// const http = require('http')
-// const fs = require('fs')
+// Requiring Express from node modules
+const express = require('express');
 
-// const server = http.createServer((res) => {
-//  res.writeHead(200, { 'content-type': 'text/html' })
-//  fs.createReadStream('index.html').pipe(res)
-// })
+// Requiring Path from node modules
+const path = require('path')
 
-// server.listen(process.env.PORT || 3000)
+// @ADD this, to require dotenv and configure it
+const dotenv = require('dotenv').config();
 
-var http = require("http");
-var fs = require('fs');
+// Creating express instance and save it to app variable
+const app = express()
 
-//create a server object:
-http
-  .createServer(function(res) {
-    res.writeHead(200, {'content-type': 'text/html' }); //write a response to the client
-    fs.createReadStream('index.html').pipe(res)
-    res.end(); //end the response
-  })
-  .listen(8080); //the server object listens on port 8080
+// Setup the app to serve static files
+app.use(express.static(path.join(__dirname, './public')))
+
+// Setup our express server with env port
+let port = process.env.PORT;
+app.listen(port, ()=>{
+  console.log(`App is running on port ${ port }`)
+})
+
+//An environment variable is a dynamic-named value that can affect the way running processes will behave on a computer.

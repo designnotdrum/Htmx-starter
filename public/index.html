@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="corporate">
 
 <head>
-  <title>Hello Page</title>
+  <title>Hello Motherfucker</title>
   <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/dist/output.css" rel="stylesheet">
 </head>
-
 <body>
+  <h1 class="text-3xl font-bold">
+    Hello world!
+  </h1>
+
   <h1>Hello</h1>
-  <button hx-get="/ui/button" hx-swap="afterend">Load</button>
-  
-  <button hx-get="/bin/button" hx-swap="afterend">Load next</button>
+  <button class="btn btn-primary btn-xs" hx-get="/ui/button" hx-swap="afterend">Load</button>
 
   <script>
     // Install a service worker that intercepts requests to /ui/*
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
-        .register("/sw.js")
+        .register("/js/sw.js")
         .then((registration) => {
           console.log("Service worker registered:", registration);
         })

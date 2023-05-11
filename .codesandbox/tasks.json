@@ -4,9 +4,19 @@
 
   // These tasks can be run from CodeSandbox. Running one will open a log in the app.
   "tasks": {
-    "npm install && npm run dev": {
-      "name": "npm install && npm run",
-      "command": "npm install && npm run",
+    "Install Dependencies": {
+      "name": "Install dependencies",
+      "command": "npm install",
+      "runAtStart": true
+    },
+    "Start Node Server": {
+      "name": "Start Node Server",
+      "command": "npm start",
+      "runAtStart": true
+    },
+    "Tailwind watch": {
+      "name": "Tailwind watch",
+      "command": "npm run tw",
       "runAtStart": true
     }
   }
